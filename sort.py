@@ -27,6 +27,16 @@ def bubbleSort(arr):
         
         print(arr)
 
+def insertionSort(arr):
+    for i in range (1, len(arr)): # starting from index one to the length of array
+        j = i
+        while arr[j - 1] > arr[j] and j > 0: # if left value is bigger than current
+            arr[j - 1], arr[j] = arr[j], arr[j-1] # swap
+            j -= 1 # go further to the left
+
+            print(arr)
+
+
 arrayValues = [49, 7, 31, 29, 58, 20, 95, 83, 60, 81]
-bubbleSort(arrayValues)
-print('Selection Sort: ', arrayValues)
+insertionSort(arrayValues)
+print('Insertion Sort: ', arrayValues)
