@@ -101,5 +101,20 @@ def partition(arr, left, right): # returns index of every pivot element
     return i
 
 arrayValues = [49, 7, 31, 29, 58, 20, 95, 83, 60, 81]
-quickSort(arrayValues, 0, len(arrayValues) - 1)
-print('Quick Sort: ', arrayValues)
+
+# TEST SCRIPTS 
+
+# selectionSort(arrayValues)
+# print('Selection Sort: ', arrayValues)
+
+# bubbleSort(arrayValues)
+# print('Bubble Sort: ', arrayValues)
+
+# insertionSort(arrayValues)
+# print('Insertion Sort: ', arrayValues)
+
+# mergeSort(arrayValues)
+# print('Merge Sort: ', arrayValues)
+
+# quickSort(arrayValues, 0, len(arrayValues) - 1)
+# print('Quick Sort: ', arrayValues)
