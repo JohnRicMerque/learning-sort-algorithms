@@ -51,7 +51,7 @@ def mergeSort(arr):
         k = 0 # merged array index
 
         while i < len(leftArr) and j < len(rightArr):
-            # place which value is bigger on the index k, then loop merged array index k
+            # place which value is bigger on the index k, then increment merged array index k
             if leftArr[i] < rightArr[j]: 
                 arr[k] = leftArr[i]
                 i += 1
@@ -60,7 +60,7 @@ def mergeSort(arr):
                 j += 1
             k += 1
         
-        # assigning values left to the merged array
+        # assigning the unmerged values to the merged array
         while i < len(leftArr):
             arr[k] = leftArr[i]
             i += 1
@@ -73,8 +73,33 @@ def mergeSort(arr):
         
         print(arr)
 
+def quickSort(arr, left, right):
+    if left < right: # run code if subarray has atleast 2 elements
+        partition_pos = partition(arr, left, right)
+        print(arr)
+        quickSort(arr, left, partition_pos - 1) # calls quicksort on elements that are less than pivot element
+        quickSort(arr, partition_pos + 1, right) # calls quicksort on elements that are greater than pivot element
 
+def partition(arr, left, right): # returns index of every pivot element
+    i = left # index left of the pivot
+    j = right - 1 # index right of the pivot
+    pivot = arr[right] # index of initial pivot
+
+    while i < j:
+        # while i is not at the end of the array and element at i is not less than pivot increment i 
+        while i < right and arr[i] < pivot: 
+            i += 1
+        # similar with the above, but minus is used beacuse j is moved to the left 
+        while j > left and arr[j] >= pivot: 
+            j -= 1
+        if i < j: # if they don't cross yet
+            arr[i], arr[j] = arr[j], arr[i] # swap
+
+    if arr[i] > pivot: # after i and j cross
+        arr[i], arr[right] = arr[right], arr[i] # swap
+
+    return i
 
 arrayValues = [49, 7, 31, 29, 58, 20, 95, 83, 60, 81]
-mergeSort(arrayValues)
-print('Merge Sort: ', arrayValues)
+quickSort(arrayValues, 0, len(arrayValues) - 1)
+print('Quick Sort: ', arrayValues)
