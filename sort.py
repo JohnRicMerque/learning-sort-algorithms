@@ -36,7 +36,45 @@ def insertionSort(arr):
 
             print(arr)
 
+def mergeSort(arr):
+    if len(arr) > 1:
+        leftArr = arr[:len(arr)//2] # left array is sliced from start of array to midpoint
+        rightArr = arr[len(arr)//2:] # right array is sliced from mid point to end
+
+        # loop recursively
+        mergeSort(leftArr)
+        mergeSort(rightArr)
+
+        # merge
+        i = 0 # left array index
+        j = 0 # right array index
+        k = 0 # merged array index
+
+        while i < len(leftArr) and j < len(rightArr):
+            # place which value is bigger on the index k, then loop merged array index k
+            if leftArr[i] < rightArr[j]: 
+                arr[k] = leftArr[i]
+                i += 1
+            else:
+                arr[k] = rightArr[j]
+                j += 1
+            k += 1
+        
+        # assigning values left to the merged array
+        while i < len(leftArr):
+            arr[k] = leftArr[i]
+            i += 1
+            k += 1
+        
+        while j < len(rightArr):
+            arr[k] = rightArr[j]
+            j += 1
+            k += 1
+        
+        print(arr)
+
+
 
 arrayValues = [49, 7, 31, 29, 58, 20, 95, 83, 60, 81]
-insertionSort(arrayValues)
-print('Insertion Sort: ', arrayValues)
+mergeSort(arrayValues)
+print('Merge Sort: ', arrayValues)
