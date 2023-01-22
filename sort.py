@@ -15,6 +15,18 @@ def selectionSort(arr):
         arr[i] = arr[minpos] # assign the minimim value in min position
         arr[minpos] = temp # put the replaced value in the initial index of minimum value
 
+        print(arr)
+
+def bubbleSort(arr):
+    for i in range(len(arr) - 1, 0, -1) : # loop until array is sequential
+        for j in range(i):
+            if arr[j] > arr[j + 1]: # if value is greater than the number beside it
+                temp = arr[j] # swap the values 
+                arr[j] = arr[j+1]
+                arr[j+1] = temp
+        
+        print(arr)
+
 arrayValues = [49, 7, 31, 29, 58, 20, 95, 83, 60, 81]
-selectionSort(arrayValues)
-print(arrayValues)
+bubbleSort(arrayValues)
+print('Selection Sort: ', arrayValues)
